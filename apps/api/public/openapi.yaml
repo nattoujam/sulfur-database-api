@@ -117,7 +117,7 @@ paths:
     get:
       tags:
         - recipe
-      summary: Reciepeの取得
+      summary: Recipeの取得
       description: result.nameで昇順ソートしてます
       operationId: getRecipe
       parameters:

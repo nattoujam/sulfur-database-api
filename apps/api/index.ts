@@ -4,9 +4,9 @@ import { PrismaClient } from "@prisma/client";
 import { initialize } from "express-openapi";
 import path from "path";
 
-import { itemOprations } from "./operations/item";
-import { materialOperations } from "./operations/matertial";
-import { recipeOprations } from "./operations/recipe";
+import { itemOperations } from "./operations/item";
+import { materialOperations } from "./operations/material";
+import { recipeOperations } from "./operations/recipe";
 
 const app = express();
 const port = 3000;
@@ -41,9 +41,9 @@ initialize({
   apiDoc: path.resolve(__dirname, "public", "openapi.yaml"),
   validateApiDoc: true,
   operations: {
-    ...itemOprations(prisma),
+    ...itemOperations(prisma),
     ...materialOperations(prisma),
-    ...recipeOprations(prisma),
+    ...recipeOperations(prisma),
   },
   errorMiddleware: errorHandler,
 });

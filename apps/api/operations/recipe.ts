@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { getLog } from "../utils/log";
 import { toHiragana, toKatakana } from "../utils/japanese";
 
-export const recipeOprations = (prisma: PrismaClient) => {
+export const recipeOperations = (prisma: PrismaClient) => {
   return {
     getRecipe: get(prisma),
     createRecipe: post(prisma),
