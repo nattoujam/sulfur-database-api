@@ -5,7 +5,7 @@ services:
     ports:
       - 3080:8080
     volumes:
-      - ../apps/api/openapi.yaml:/openapi.yaml
+      - ../apps/api/public/openapi.yaml:/openapi.yaml
     environment:
       SWAGGER_JSON: /openapi.yaml
   api:

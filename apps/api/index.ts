@@ -17,6 +17,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // Error handling
 const errorHandler = (err: any, req: any, res: any, next: any) => {
@@ -37,7 +38,7 @@ app.listen(port, () => {
 
 initialize({
   app,
-  apiDoc: path.resolve(__dirname, "openapi.yaml"),
+  apiDoc: path.resolve(__dirname, "public", "openapi.yaml"),
   validateApiDoc: true,
   operations: {
     ...itemOprations(prisma),
