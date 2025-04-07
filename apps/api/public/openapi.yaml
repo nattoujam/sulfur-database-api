@@ -64,9 +64,9 @@ paths:
                   type: integer
                   minimum: 1
                 healAmount:
-                  type: integer
+                  type: number
                 healSecond:
-                  type: integer
+                  type: number
 
       responses:
         200:
