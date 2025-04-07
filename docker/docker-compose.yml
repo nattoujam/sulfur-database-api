@@ -16,4 +16,5 @@ services:
       - 3000:3000
     volumes:
       - ../:/usr/src/app
+      - /usr/src/app/node_modules # exclude node_modules
     command: sh -c "npm ci && npm -w database run migrate && npm -w api run dev"
