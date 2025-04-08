@@ -100,6 +100,26 @@ const main = async () => {
     },
   });
 
+  const itemName7 = "絶縁ポーション";
+  await prisma.item.upsert({
+    where: { name: itemName7 },
+    update: {},
+    create: {
+      name: itemName7,
+      price: 60,
+      tradeInPrice: 30,
+      healAmount: 100,
+      healSecond: 5.5,
+      size: 1,
+      itemEffect: {
+        create: {
+          electricResistance: 50,
+          electricResistanceSecond: 8.5,
+        },
+      },
+    },
+  });
+
   await prisma.recipe.create({
     data: {
       resultId: item3.id,
