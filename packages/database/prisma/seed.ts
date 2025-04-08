@@ -59,6 +59,47 @@ const main = async () => {
     },
   });
 
+  const itemName5 = "回復ポーション";
+  await prisma.item.upsert({
+    where: { name: itemName5 },
+    update: {},
+    create: {
+      name: itemName5,
+      price: 60,
+      tradeInPrice: 30,
+      healAmount: 100,
+      healSecond: 5,
+      size: 1,
+      itemEffect: {
+        create: {
+          burningRemovable: true,
+          poisonedRemovable: true,
+        },
+      },
+    },
+  });
+
+  const itemName6 = "ホットポーション";
+  await prisma.item.upsert({
+    where: { name: itemName6 },
+    update: {},
+    create: {
+      name: itemName6,
+      price: 60,
+      tradeInPrice: 30,
+      healAmount: 100,
+      healSecond: 5.5,
+      size: 1,
+      itemEffect: {
+        create: {
+          frozenRemovable: true,
+          accuracyPercentage: 50,
+          accuracySecond: 2.5,
+        },
+      },
+    },
+  });
+
   await prisma.recipe.create({
     data: {
       resultId: item3.id,
