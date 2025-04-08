@@ -67,7 +67,48 @@ paths:
                   type: number
                 healSecond:
                   type: number
-
+                itemEffect:
+                  type: object
+                  properties:
+                    create:
+                      type: object
+                      properties:
+                        poisonedRemovable:
+                          type: boolean
+                        burningRemovable:
+                          type: boolean
+                        frozenRemovable:
+                          type: boolean
+                        poisonResistance:
+                          type: integer
+                        poisonResistanceSecond:
+                          type: number
+                        fireResistance:
+                          type: integer
+                        fireResistanceSecond:
+                          type: number
+                        frostResistance:
+                          type: integer
+                        frostResistanceSecond:
+                          type: number
+                        electricResistance:
+                          type: integer
+                        electricResistanceSecond:
+                          type: number
+                        slowMotionPercentage:
+                          type: integer
+                        slowMotionSeconds:
+                          type: number
+                        movementSpeedPercentage:
+                          type: integer
+                        movementSpeedSecond:
+                          type: number
+                        dashBonus:
+                          type: integer
+                        accuracyPercentage:
+                          type: integer
+                        accuracySecond:
+                          type: number
       responses:
         200:
           description: success
@@ -226,6 +267,8 @@ components:
           type: integer
         size:
           type: integer
+        itemEffectList:
+          type: array
     ItemArray:
       type: array
       items:
@@ -291,6 +334,9 @@ components:
           healAmount: 15
           healSecond: 4
           size: 2
+          itemEffectList:
+            - name: "ダッシュボーナス"
+              amount: 20
         - id: 2
           createdAt: "2025-02-08T00:00:00.000Z"
           updatedAt: "2025-02-08T00:00:00.000Z"
@@ -300,6 +346,10 @@ components:
           healAmount: 1
           healSecond: 1
           size: 1
+          itemEffectList:
+            - name: "炎抵抗力"
+              amount: 20
+              second: 2.5
     MaterialArrayExample:
       value:
         - id: 1

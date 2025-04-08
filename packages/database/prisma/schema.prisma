@@ -23,8 +23,35 @@ model Item {
   size          Int      @default(1)
   healAmount    Float      @default(0)
   healSecond    Float      @default(0)
+  itemEffect    ItemEffect?
   recipes       Recipe[]
   materials     Material[]
+}
+
+model ItemEffect {
+  id                       Int      @id @default(autoincrement())
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+  item                     Item     @relation(fields: [itemId], references: [id])
+  itemId                   Int      @unique
+  poisonedRemovable        Boolean  @default(false)
+  burningRemovable         Boolean  @default(false)
+  frozenRemovable          Boolean  @default(false)
+  poisonResistance         Int?
+  poisonResistanceSecond   Float?
+  fireResistance           Int?
+  fireResistanceSecond     Float?
+  frostResistance          Int?
+  frostResistanceSecond    Float?
+  electricResistance       Int?
+  electricResistanceSecond Float?
+  slowMotionPercentage     Int?
+  slowMotionSecond         Float?
+  movementSpeedPercentage  Int?
+  movementSpeedSecond      Float?
+  dashBonus                Int?
+  accuracyPercentage       Int?
+  accuracySecond           Float?
 }
 
 model Material {
